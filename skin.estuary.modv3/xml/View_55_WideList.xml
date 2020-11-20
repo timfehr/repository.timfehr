@@ -15,27 +15,18 @@
 				<pagecontrol>531</pagecontrol>
 				<movement>5</movement>
 				<focusposition>6</focusposition>
-				<oninfo condition="String.IsEqual(ListItem.DBType,set)">ActivateWindow(1132)</oninfo>
-				<onleft condition="!Skin.HasSetting(KioskMode)">9000</onleft>
+				<onleft>9000</onleft>
 				<onright>531</onright>
 				<onup>55</onup>
 				<ondown>55</ondown>
 				<viewtype label="$LOCALIZE[31107]">list</viewtype>
-				<focusedlayout height="list_item_height" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games)">
+				<focusedlayout height="list_item_height" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
 					<control type="image">
 						<left>0</left>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
+						<texture colordiffuse="button_focus">lists/focus.png</texture>
 						<visible>Control.HasFocus(55)</visible>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-						<visible>Control.HasFocus(55)</visible>
-						<visible>Skin.HasSetting(EnableGradientColor)</visible>
 					</control>
 					<control type="image">
 						<left>35</left>
@@ -51,7 +42,7 @@
 						<right>40</right>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[ListLabelVar]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 					<control type="label">
@@ -65,111 +56,7 @@
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 				</focusedlayout>
-				<itemlayout height="list_item_height" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games)">
-					<control type="image">
-						<left>35</left>
-						<centertop>50%</centertop>
-						<width>32</width>
-						<height>32</height>
-						<texture>$VAR[ListWatchedIconVar]</texture>
-					</control>
-					<control type="image">
-						<left>35</left>
-						<centertop>50%</centertop>
-						<width>32</width>
-						<height>32</height>
-						<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
-						<visible>Skin.HasSetting(greyedout_watched) + Integer.IsGreater(ListItem.Playcount,0)</visible>
-					</control>
-					<control type="label">
-						<left>105</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>40</right>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<control type="label">
-						<left>105</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>40</right>
-						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
-						<textcolor>grey</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-						<visible>Skin.HasSetting(greyedout_watched) + Integer.IsGreater(ListItem.Playcount,0)</visible>
-					</control>
-					<control type="label">
-						<left>40</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>40</right>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListLabel2Var]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<control type="label">
-						<left>40</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>40</right>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListLabel2Var]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-						<textcolor>grey</textcolor>
-						<shadowcolor>text_shadow</shadowcolor>
-						<visible>Skin.HasSetting(greyedout_watched) + Integer.IsGreater(ListItem.Playcount,0)</visible>
-					</control>
-				</itemlayout>
-				<focusedlayout height="list_item_height" condition="Container.Content(files)">
-					<control type="image">
-						<left>0</left>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
-						<visible>Control.HasFocus(55)</visible>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-						<visible>Control.HasFocus(55)</visible>
-						<visible>Skin.HasSetting(EnableGradientColor)</visible>
-					</control>
-					<control type="image">
-						<left>35</left>
-						<centertop>50%</centertop>
-						<width>32</width>
-						<height>32</height>
-						<texture>$VAR[ListWatchedIconVar]</texture>
-					</control>
-					<control type="label">
-						<left>105</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>40</right>
-						<aligny>center</aligny>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.Label]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-					<control type="label">
-						<left>105</left>
-						<top>0</top>
-						<bottom>0</bottom>
-						<right>40</right>
-						<align>right</align>
-						<aligny>center</aligny>
-						<label>$VAR[ListLabel2Var]</label>
-						<shadowcolor>text_shadow</shadowcolor>
-					</control>
-				</focusedlayout>
-				<itemlayout height="list_item_height" condition="Container.Content(files)">
+				<itemlayout height="list_item_height" condition="Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(movies) | Container.Content(musicvideos) | Container.Content(videos) | Container.Content(games) | Window.IsActive(videoplaylist) | Window.IsActive(musicplaylist)">
 					<control type="image">
 						<left>35</left>
 						<centertop>50%</centertop>
@@ -183,7 +70,7 @@
 						<bottom>0</bottom>
 						<right>40</right>
 						<aligny>center</aligny>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[ListLabelVar]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 					<control type="label">
@@ -202,16 +89,8 @@
 						<left>0</left>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
+						<texture colordiffuse="button_focus">lists/focus.png</texture>
 						<visible>Control.HasFocus(55)</visible>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-						<visible>Control.HasFocus(55)</visible>
-						<visible>Skin.HasSetting(EnableGradientColor)</visible>
 					</control>
 					<control type="image">
 						<left>35</left>
@@ -247,7 +126,7 @@
 						<centertop>50%</centertop>
 						<width>32</width>
 						<height>32</height>
-						<texture>$VAR[ListWatchedIconVar]</texture>
+						<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
 					</control>
 					<control type="label">
 						<left>105</left>
@@ -255,8 +134,7 @@
 						<bottom>0</bottom>
 						<right>40</right>
 						<aligny>center</aligny>
-						<scroll>true</scroll>
-						<label>$INFO[ListItem.Label]</label>
+						<label>$VAR[ListLabelVar]</label>
 						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 					<control type="label">
@@ -275,16 +153,8 @@
 						<left>0</left>
 						<right>0</right>
 						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
+						<texture colordiffuse="button_focus">lists/focus.png</texture>
 						<visible>Control.HasFocus(55)</visible>
-					</control>
-					<control type="image">
-						<left>0</left>
-						<right>0</right>
-						<bottom>0</bottom>
-						<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-						<visible>Control.HasFocus(55)</visible>
-						<visible>Skin.HasSetting(EnableGradientColor)</visible>
 					</control>
 					<control type="image">
 						<left>20</left>
@@ -298,7 +168,7 @@
 						<left>105</left>
 						<top>0</top>
 						<bottom>0</bottom>
-						<right>40</right>
+						<right>100</right>
 						<aligny>center</aligny>
 						<scroll>true</scroll>
 						<label>$INFO[ListItem.Label]</label>
@@ -318,7 +188,7 @@
 						<left>105</left>
 						<top>0</top>
 						<bottom>0</bottom>
-						<right>40</right>
+						<right>100</right>
 						<aligny>center</aligny>
 						<label>$INFO[ListItem.Label]</label>
 						<shadowcolor>text_shadow</shadowcolor>
@@ -335,16 +205,8 @@
 				<left>0</left>
 				<right>0</right>
 				<height>80</height>
-				<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
+				<texture colordiffuse="button_focus">lists/focus.png</texture>
 				<visible>Control.hasFocus(55)</visible>
-			</control>
-			<control type="image">
-				<left>0</left>
-				<right>0</right>
-				<height>80</height>
-				<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-				<visible>Control.HasFocus(55)</visible>
-				<visible>Skin.HasSetting(EnableGradientColor)</visible>
 			</control>
 			<control type="label">
 				<left>35</left>
@@ -352,7 +214,7 @@
 				<right>40</right>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[ListLabelVar]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
 			<control type="label">
@@ -361,7 +223,7 @@
 				<right>40</right>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label2]</label>
+				<label>$VAR[ListLabel2Var]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
 		</focusedlayout>
@@ -371,7 +233,7 @@
 				<height>80</height>
 				<right>40</right>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label]</label>
+				<label>$VAR[ListLabelVar]</label>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
 			<control type="label">
@@ -380,7 +242,7 @@
 				<right>40</right>
 				<align>right</align>
 				<aligny>center</aligny>
-				<label>$INFO[ListItem.Label2]</label>
+				<label>$VAR[ListLabel2Var]</label>
 				<textcolor>grey</textcolor>
 				<shadowcolor>text_shadow</shadowcolor>
 			</control>
@@ -388,78 +250,80 @@
 	</include>
 	<include name="AddonsListLayout">
 		<focusedlayout height="80" condition="Container.Content(addons)">
-			<control type="group">
-				<top>40</top>
-				<control type="image">
-					<left>0</left>
-					<right>0</right>
-					<height>80</height>
-					<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
-					<visible>Control.HasFocus(55)</visible>
-				</control>
-				<control type="image">
-					<left>0</left>
-					<right>0</right>
-					<height>80</height>
-					<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-					<visible>Control.HasFocus(55)</visible>
-					<visible>Skin.HasSetting(EnableGradientColor)</visible>
-				</control>
-				<control type="image">
-					<left>20</left>
-					<top>25</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>$VAR[AddonsListIconVar]</texture>
-				</control>
-				<control type="label">
-					<left>75</left>
-					<height>80</height>
-					<right>40</right>
-					<aligny>center</aligny>
-					<scroll>true</scroll>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="label">
-					<left>75</left>
-					<height>80</height>
-					<right>40</right>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>font27</font>
-					<label>$VAR[AddonsLabel2Var]</label>
-				</control>
+			<control type="image">
+				<left>0</left>
+				<right>0</right>
+				<height>80</height>
+				<texture colordiffuse="button_focus">lists/focus.png</texture>
+				<visible>Control.hasFocus(55)</visible>
+			</control>
+			<control type="image">
+				<left>20</left>
+				<top>25</top>
+				<width>32</width>
+				<height>32</height>
+				<texture>$VAR[AddonsListIconVar]</texture>
+			</control>
+			<control type="label">
+				<left>75</left>
+				<height>80</height>
+				<right>40</right>
+				<aligny>center</aligny>
+				<scroll>true</scroll>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="label">
+				<left>75</left>
+				<height>80</height>
+				<right>90</right>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font27</font>
+				<label>$VAR[AddonsLabel2Var]</label>
+				<scroll>true</scroll>
+			</control>
+			<control type="image">
+				<right>40</right>
+				<top>25</top>
+				<width>32</width>
+				<height>32</height>
+				<texture>$VAR[AddonsOriginVar]</texture>
+				<visible>!ListItem.IsFolder</visible>
 			</control>
 		</focusedlayout>
 		<itemlayout height="80" condition="Container.Content(addons)">
-			<control type="group">
-				<top>40</top>
-				<control type="image">
-					<left>20</left>
-					<top>25</top>
-					<width>32</width>
-					<height>32</height>
-					<texture>$VAR[AddonsListIconVar]</texture>
-				</control>
-				<control type="label">
-					<left>75</left>
-					<height>80</height>
-					<right>40</right>
-					<aligny>center</aligny>
-					<scroll>true</scroll>
-					<label>$INFO[ListItem.Label]</label>
-				</control>
-				<control type="label">
-					<left>75</left>
-					<height>80</height>
-					<right>40</right>
-					<align>right</align>
-					<aligny>center</aligny>
-					<font>font27</font>
-					<label>$VAR[AddonsLabel2Var]</label>
-					<textcolor>grey</textcolor>
-					<shadowcolor>text_shadow</shadowcolor>
-				</control>
+			<control type="image">
+				<left>20</left>
+				<top>25</top>
+				<width>32</width>
+				<height>32</height>
+				<texture>$VAR[AddonsListIconVar]</texture>
+			</control>
+			<control type="label">
+				<left>75</left>
+				<height>80</height>
+				<right>40</right>
+				<aligny>center</aligny>
+				<label>$INFO[ListItem.Label]</label>
+			</control>
+			<control type="label">
+				<left>75</left>
+				<height>80</height>
+				<right>90</right>
+				<align>right</align>
+				<aligny>center</aligny>
+				<font>font27</font>
+				<label>$VAR[AddonsLabel2Var]</label>
+				<textcolor>grey</textcolor>
+				<shadowcolor>text_shadow</shadowcolor>
+			</control>
+			<control type="image">
+				<right>40</right>
+				<top>25</top>
+				<width>32</width>
+				<height>32</height>
+				<texture>$VAR[AddonsOriginVar]</texture>
+				<visible>!ListItem.IsFolder</visible>
 			</control>
 		</itemlayout>
 	</include>

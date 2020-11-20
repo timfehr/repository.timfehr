@@ -15,28 +15,26 @@
 				<control type="fixedlist" id="50">
 					<left>0</left>
 					<top>list_y_offset</top>
-					<right>922</right>
+					<right>918</right>
 					<bottom>list_y_offset</bottom>
 					<onup>50</onup>
 					<ondown>50</ondown>
 					<onleft>9000</onleft>
 					<onright>73</onright>
-					<onback>9000</onback> 
-					<movement>3</movement>
-					<focusposition>4</focusposition>
+					<movement>2</movement>
+					<focusposition>3</focusposition>
 					<pagecontrol>73</pagecontrol>
 					<scrolltime>200</scrolltime>
 					<itemlayout height="100">
 						<control type="label">
 							<visible>String.IsEmpty(ListItem.Date)</visible>
-							<left>30</left>
+							<left>120</left>
 							<top>0</top>
 							<right>30</right>
 							<height>100</height>
-							<font>font32_title</font>
+							<font>font36_title</font>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="group">
 							<visible>!String.IsEmpty(ListItem.Date)</visible>
@@ -56,7 +54,6 @@
 								<height>100</height>
 								<aligny>top</aligny>
 								<label>$INFO[ListItem.ChannelName][COLOR grey]$INFO[ListItem.Label, - ][/COLOR]</label>
-								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="label">
 								<left>120</left>
@@ -66,7 +63,6 @@
 								<font>font12</font>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Date]</label>
-								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 						</control>
 					</itemlayout>
@@ -76,28 +72,18 @@
 							<top>0</top>
 							<right>0</right>
 							<height>101</height>
-							<texture colordiffuse="$VAR[SkinColorVar]">lists/focus.png</texture>
+							<texture colordiffuse="button_focus">lists/focus.png</texture>
 							<visible>Control.HasFocus(50)</visible>
-						</control>
-						<control type="image">
-							<left>0</left>
-							<top>0</top>
-							<right>0</right>
-							<height>101</height>
-							<texture colordiffuse="$VAR[GradientColorVar]">lists/focus-gradient.png</texture>
-							<visible>Control.HasFocus(50)</visible>
-							<visible>Skin.HasSetting(EnableGradientColor)</visible>
 						</control>
 						<control type="label">
 							<visible>String.IsEmpty(ListItem.Date)</visible>
-							<left>30</left>
+							<left>120</left>
 							<top>0</top>
 							<right>30</right>
 							<height>100</height>
-							<font>font32_title</font>
+							<font>font36_title</font>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="group">
 							<visible>!String.IsEmpty(ListItem.Date)</visible>
@@ -117,7 +103,6 @@
 								<height>100</height>
 								<aligny>top</aligny>
 								<label>$INFO[ListItem.ChannelName]$INFO[ListItem.Label, - ]</label>
-								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 							<control type="label">
 								<left>120</left>
@@ -127,7 +112,6 @@
 								<font>font12</font>
 								<aligny>center</aligny>
 								<label>$INFO[ListItem.Date]</label>
-								<shadowcolor>text_shadow</shadowcolor>
 							</control>
 						</control>
 					</focusedlayout>

@@ -25,12 +25,11 @@
 				<param name="info_visible" value="true" />
 			</include>
 			<include>CommonScrollbars</include>
-			<include>CommonAlphabet</include>
 			<include>MediaMenuMouseOverlay</include>
 			<control type="group">
 				<include>MediaMenuCommon</include>
 				<control type="grouplist" id="9000">
-					<top>80</top>
+					<top>50</top>
 					<include>MediaMenuListCommon</include>
 					<control type="label" id="203">
 						<description>Actions</description>

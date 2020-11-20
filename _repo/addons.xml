@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="repository.timfehr" name="Tim Fehr Repository" version="1.0.0" provider-name="Tim Fehr">
+        <requires>
+            <import addon="xbmc.addon" version="12.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="Tim Fehr Repository">
+                <info compressed="false">https://raw.githubusercontent.com/timfehr/repository.timfehr/master/_repo/addons.xml</info>
+                <checksum>https://raw.githubusercontent.com/timfehr/repository.timfehr/master/_repo/addons.xml.md5</checksum>
+                <datadir zip="true">https://github.com/timfehr/repository.timfehr/raw/master/_repo</datadir>
+                <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">Tim Fehr's addons repository</summary>
+            <description lang="en">Download and install Tim Fehr's addons repository.</description>
+            <platform>all</platform>
+            <assets>
+ 			   <icon>resources/icon.png</icon>
+ 			   <fanart>resources/fanart.jpg</fanart>
+ 			   <screenshot>resources/screenshot-01.jpg</screenshot>
+ 			   <screenshot>resources/screenshot-02.jpg</screenshot>
+ 			   <screenshot>resources/screenshot-03.jpg</screenshot>
+ 		    </assets>
+            <news>Inital release</news>
+    </extension>
+</addon>
+
+<addon id="skin.estuary.modv2" version="3.0.6" name="Estuary MOD V2 (KODI 18)" provider-name="Guilouz">
+	<requires>
+		<import addon="xbmc.gui" version="5.15.0"/>
+		<import addon="script.skinshortcuts" version="0.6.5"/>
+        <import addon="script.image.resource.select" version="1.0.0"/>
+	</requires>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1440" aspect="4:3" default="false" folder="xml" />
+		<res width="1920" height="1280" aspect="3:2" default="false" folder="xml" />
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
+		<res width="2040" height="1080" aspect="17:9" default="false" folder="xml" />
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+		<res width="2338" height="1080" aspect="19.5:9" default="false" folder="xml" />
+ 		<res width="2160" height="1080" aspect="18:9" default="false" folder="xml" />
+		<res width="2560" height="1080" aspect="21:9" default="false" folder="xml" />
+	</extension>
+	<extension point="xbmc.service" library="scripts/viewswitcher.py" visible="!String.IsEmpty(Window(home).Property(CurrentSkin)) + Skin.HasSetting(ForcedViews.Enabled)" />
+	<extension point="kodi.context.item">
+      	<menu id="kodi.core.main">
+      		<item library="scripts/context_menu_jumptoletter.py">
+ 				<label>$LOCALIZE[40165]</label>
+ 				<visible>!String.IsEmpty(Window(home).Property(CurrentSkin)) + [String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,set) | String.IsEqual(ListItem.dbtype,tvshow) | String.IsEqual(ListItem.dbtype,artist) | String.IsEqual(ListItem.dbtype,album) | String.IsEqual(ListItem.dbtype,musicvideo) | Container.Content(addons)] + !Window.IsVisible(Home)</visible>
+ 			</item>
+      		<item library="scripts/context_menu_moviessets.py">
+ 				<label>$LOCALIZE[40181]</label>
+ 				<visible>!String.IsEmpty(Window(home).Property(CurrentSkin)) + String.IsEqual(ListItem.DBType,set) + !Window.IsVisible(Home)</visible>
+ 			</item>
+      		<item library="scripts/context_menu_extendedinfo.py">
+        		<label>$LOCALIZE[40182]</label>
+        		<visible>!String.IsEmpty(Window(home).Property(CurrentSkin)) + System.HasAddon(script.extendedinfo) + !System.HasAddon(context.extendedinfo.dialog) + [String.IsEqual(ListItem.dbtype,movie) | String.IsEqual(ListItem.dbtype,tvshow) | String.IsEqual(ListItem.dbtype,season) | String.IsEqual(ListItem.dbtype,actor) | String.IsEqual(ListItem.dbtype,director)]</visible>
+      		</item>
+    	</menu>
+ 	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en_GB">Estuary MOD V2 skin by Guilouz</summary>
+		<summary lang="fr_FR">Thème Estuary MOD V2 par Guilouz</summary>
+		<description lang="en_GB">Estuary MOD V2 is a mod from Estuary by Guilouz for Kodi 18. It attempts to be easy for first time Kodi users to understand and use.</description>
+		<description lang="fr_FR">Estuary MOD V2 est un mod de Estuary par Guilouz pour Kodi 18. Il est facile à comprendre et à utiliser pour les utilisateurs novices de Kodi.</description>
+		<disclaimer lang="en_GB">For better experience, be sure to install all addons required by the theme.</disclaimer>
+		<disclaimer lang="fr_FR">Pour une meilleure expérience, assurez-vous d'installer toutes les extensions requises par le thème.</disclaimer>
+		<platform>all</platform>
+		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+		<source>https://github.com/Guilouz/skin.estuary.modv2</source>
+			<assets>
+				<icon>resources/icon.png</icon>
+				<fanart>resources/fanart.jpg</fanart>
+				<screenshot>resources/screenshot-01.jpg</screenshot>
+				<screenshot>resources/screenshot-02.jpg</screenshot>
+				<screenshot>resources/screenshot-03.jpg</screenshot>
+				<screenshot>resources/screenshot-04.jpg</screenshot>
+				<screenshot>resources/screenshot-05.jpg</screenshot>
+				<screenshot>resources/screenshot-06.jpg</screenshot>
+				<screenshot>resources/screenshot-07.jpg</screenshot>
+				<screenshot>resources/screenshot-08.jpg</screenshot>
+				<screenshot>resources/screenshot-09.jpg</screenshot>
+				<screenshot>resources/screenshot-10.jpg</screenshot>
+				<screenshot>resources/screenshot-11.jpg</screenshot>
+			</assets>
+			<news>[B]3.0.6[/B][CR]• Keyboard layout fixes[CR]• Fix for web-dl flag icon with movies have 'web' word in their names[CR][CR][B]3.0.5[/B][CR]• Add number of bits per sample on music OSD[CR]• Add Russian translation by salashnik[CR]• Add Czech translation by Pavuucek[CR]• Add Spanish translation by notorius28[CR]• Display seekbar on showtime action[CR]• Improve detection of audio CDs using an infobool[CR]• Fix Holidays themes[CR]• Minor fixes[CR][CR][B]3.0.4[/B][CR]• KODI 18 : Bump target GUI API to 5.14.0[CR]• KODI 18 : Add GUI for Radio Data System (RDS)[CR]• Add support for 'Next Up' addon by im85288[CR]• Add 8K flag icon[CR]• Add Rip audio-cd from 'Disc' on home menu[CR]• Add Hebrew and Armenian typefaces to the fonts[CR]• Video OSD and Music OSD enhancements/fixes[CR]• Minor fixes[CR][CR][B]3.0.3[/B][CR]• KODI 18 : Video OSD - Hide 'Previous' button for non-seekable streams[CR]• KODI 18 : Game - Add controller description[CR]• KODI 18 : Game - Add 'Get all' button to controller dialog[CR]• KODI 18 : Game OSD - Show help dialog on first view[CR]• KODI 18 : Game OSD - Finish renaming 'View mode' to 'Stretch mode'[CR]• KODI 18 : Game OSD - Extend help dialog to explain lack of remote support[CR]• Add 'HDTV', 'VHS' and 'HDDVD' flag icons[CR]• Fix condition for focus on the stop button[CR]• Minor fixes[CR][CR][B]3.0.2[/B][CR]KODI 18 : • Add 'sorty by' and 'sort order' for epg grid channels[CR]• Add 'mp3float' flag icon[CR]• Fix TV Shows ratings in some views[CR]• Minor fixes[CR][CR][B]3.0.1[/B][CR]• Add support for CoreELEC settings addon[CR]• Add DefaultMusicSources icon[CR]• Game : Update available views[CR]• Game OSD : Rename 'View mode' setting label to 'Stretch mode'[CR]• Game OSD : Rename 'Input settings' setting label to 'Controls'[CR]• Fix lists on dialog video info[CR]• Fix some textures[CR]• Fix keyboard navigation[CR]• Minor fixes[CR][CR][B]3.0.0[/B][CR]• KODI 18 : Add 'Advanced settings' button to settings list for Game OSD[CR]• KODI 18 : Add video rotation setting for Game OSD[CR]• Add new video info dialog (Thanks to jurialmunkey and VikkiXavier)[CR]• Add new music info dialog[CR]• Add new extended info dialog[CR]• Add new text viewer window[CR]• Add setting to disable fullscreen video info for movies and TV shows[CR]• Remove music themes feature which caused crashes[CR]• Minor fixes[CR][CR][B]2.9.9[/B][CR]• KODI 18 : Allow user to select resolutions[CR]• Add video fps flag icon on OSD[CR]• Changes in playing trailers on video info (Thanks to jurialmunkey)[CR]• Fix music themes with video addons[CR]• Minor fixes[CR][CR][B]2.9.8[/B][CR]• KODI 18 : Audio DSP removal[CR]• Add support for music themes for movies and TV shows (theme.mp3 files) (Thanks to manfeed)[CR]• Minor fixes[CR][CR][B]2.9.7[/B][CR]• KODI 18 : Add PVR Timeshift Offset[CR]• KODI 18 : Add Epg Event Seek Time[CR]• KODI 18 : Introduced control 402 for epg event seek percentage[CR]• Enable 'Wall (thumbnails)' and 'InfoWall (thumbnails)' views for artists[CR]• Improvements[CR]• Fix forced views (thanks to hawkeyexp)[CR]• Minor fixes[CR][CR][B]2.9.6[/B][CR]• KODI 18 : Use subtitle setting osd instead of custom dialog[CR]• Add possibility to disable default splash screen[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.9.5[/B][CR]• KODI 18 : RetroPlayer: Disable reset hotkey[CR]• Add default splash screen[CR]• Add new Icon and Fanart[CR]• Add icon for font addons[CR]• Add original title on video info[CR]• Remove possibility to edit power menu to avoid some crash[CR]• Improvement[CR][CR][B]2.9.4[/B][CR]• Add scope mode for constant image height (CIH) setup (OSD only)[CR]• Add new fullscreen info for movies and episodes[CR]• Add possibility to show ratings and user ratings in same time[CR]• Add tags on dialog info[CR]• Improve support for GlobalSearch 8.x.x addon[CR]• Improve PVR channels OSD[CR]• Others improvements[CR]• Minor fixes[CR][CR][B]2.9.3[/B][CR]• Add support GlobalSearch 8.x.x addon[CR]• Add support for music artworks with Artwork Beef addon[CR]• Add movies set button on video info dialog[CR]• Add progress bar to PVR widgets[CR]• Add support for 'KN Switchtimer Service' addon on PVR info dialog[CR]• Improve 'Icons Wall' view for PVR channels[CR]• Improve dialog info windows[CR]• Add possibility to show channels groups on PVR Guide[CR]• Many others improvements in PVR[CR]• Fix forced views with a script from hawkeyexp[CR]• Fix PVR NextUp popup[CR]• Minor fixes[CR][CR][B]2.9.2[/B][CR]• Fix for movies sets overview[CR]• Minor fixes (Thanks to Angelinas)[CR][CR][B]2.9.1[/B][CR]• Add new 'Icons Wall' view for PVR channels[CR]• Add Valentine's Day and Easter themes[CR]• Add possibility to change video lyrics colors[CR]• Minor fixes[CR][CR][B]2.9.0[/B][CR]• KODI 18 : Move recording control and info functionality from player to PVR[CR]• KODI 18 : Add button to bring up program selection dialog[CR]• Add support for more aspect ratios (used by newer phones)[CR]• Add Christmas (1 december to 2 january) and Halloween (30-31 october) themes[CR]• Add extended info when playing music[CR]• Minor fixes[CR][CR][B]2.8.9[/B][CR]• Add support for music clearart on music OSD[CR]• Improvements[CR]• Fix font issue[CR]• Minor fixes[CR][CR][B]2.8.8[/B][CR]• Improve PVR info dialog[CR]• Add new 'Christmas' pattern[CR]• Fix libraries fanarts when music is played[CR]• Fix movies sets logos on 'Shift View'[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.8.7[/B][CR]• Remove protection against banned addons aka Caretaker[CR]• Replace 'Artwork Downloader' support by 'Artwork Beef' (several advantages)[CR]• Enable 'Fanart' view for music videos[CR]• Fix PVR Group Manager channellist scrollbar position[CR]• Fix video in background when opacity is set to 100%[CR]• Minor fixes[CR][CR][B]2.8.6[/B][CR]• Add warning popup to just alert people and possible to disable it[CR]• Remove unload skin for protection against banned addons[CR][CR][B]2.8.5[/B][CR]• Fix close warning popup[CR][CR][B]2.8.4[/B][CR]• Add protection against banned addons (Thanks to sualfred)[CR]• Add (rating) star symbols to fontset (Thanks to Jeroen)[CR]• Improvements[CR]• Fix logon/logoff on power menu[CR]• Minor fixes[CR][CR][B]2.8.3[/B][CR]• Remove 'doNotShareMenu' argument[CR][CR][B]2.8.2[/B][CR]• Add games addons widget to games tab[CR]• Add Genres on list and wide list views[CR]• New Favourites window[CR]• Fix Favourites widget[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.8.1[/B][CR]• KODI 18 : Add filter description to video filter dialog[CR]• Minor fixes[CR][CR][B]2.8.0[/B][CR]• KODI 18 : Add Volume setting to Game OSD[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.7.10[/B][CR]• KODI 18 : RetroPlayer: Add renderer for Windows, OpenGL and OpenGLES[CR]• Add possibility to use small video OSD[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.7.9[/B][CR]• Add possibility to show visualisation effects behind background[CR]• Improvements[CR]• Fix missing 'Jump to letter' functionality for some views[CR]• Fix pause video during access to extended info with TV Shows[CR]• Fix on PVR Radio[CR]• Minor fixes[CR][CR][B]2.7.8[/B][CR]• Add possibility to disable Clearlogo on OSD[CR]• OSD info improvements[CR]• Fix Video Lyrics[CR]• Minor fixes[CR][CR][B]2.7.7[/B][CR]• Add 'Jump to letter' functionality to context menu[CR]• Video OSD improvements[CR]• Music OSD improvements[CR]• PVR OSD improvements[CR]• Fix for PVR info[CR]• Minor fixes[CR][CR][B]2.7.6[/B][CR]• KODI 18 : Implement FullscreenGame window[CR]• Replace genres widget by new one based on genres content (thanks to sualfred for his idea)[CR]• Add new genres widgets list/panel for Personal widgets[CR]• Add new 'Most played music videos' default widget[CR]• Add possibility to show media names with widgets names[CR]• Add new functionality 'Jump to letter' when scrollbar is focused (thanks to jurialmunkey for his idea)[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.7.5[/B][CR]• KODI 18 : Add support for epg tag playback[CR]• KODI 18 : New OSD dialog for video games settings[CR]• Add possibility to automatically show music video info at beginning and end of playing (Thanks to jurialmunkey)[CR]• Add possibility to replace background when fanarts are disabled[CR]• Improve PVR OSD info[CR]• Improve video OSD info[CR]• Improve 'TV Show - Next Aired' addon[CR]• Enable more views for video addons[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.7.4[/B][CR]• Add possibility to choose when video info must be shown on video OSD[CR]• Add support for Artworks on OSD video info for addons[CR]• Add 'Recommended Youtube videos' button on OSD for Youtube addon (Thanks to jurialmunkey)[CR]• Add support for video countries icons pack[CR]• Add 'Get all Artworks' button to context menu[CR]• Improve music visualisation[CR]• Minor fix[CR][CR][B]2.7.3[/B][CR]• Video info are now displayed when video is paused with possibility to disable it[CR]• Improve OSD info[CR]• Add fallback icons for mediaflags[CR]• Add animated poster on video info dialog[CR]• Minor changes and improvements[CR]• Fix issue with scripts for others skins[CR]• Minor fixes[CR][CR][B]2.7.2[/B][CR]• Add Top 250 from IMDb on dialog video info[CR]• Add button to download all Artworks on dialog video info[CR]• Add toggle button on PVR Guide to enable standard colors for genres[CR]• Add setting to pause video during access to extended info[CR]• Add possibility to configure media flags[CR]• Change appearance of 'TV Show - Next Aired' addon[CR]• Fix fanarts when 'Show video on background' is disable[CR]• Minor changes[CR]• Minor fixes[CR][CR][B]2.7.1[/B][CR]• Add possibility to change media flags color[CR]• Add possibility to show a border for media and choose his color[CR]• Improve dialog video info[CR]• Fix movies sets info with 'Banner' view[CR]• Fix media flags for sets with 'Banner' view[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.7.0[/B][CR]• Add number of oscars on video info (thanks to jurialmunkey)[CR]• Add possibility to hide fanart opacity in fullscreen mode on music visualisation[CR]• Improve navigation with better animations[CR]• Improve some views[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.6.2[/B][CR]• Add support for Skin Helper Service PVR Artworks[CR]• Enable 'Fanart' view for episodes[CR]• Enable 'Banner' view for movies[CR]• Improve 'Banner' view [CR]• Update thumbs previews for views[CR]• Fix duplicate ratings in list views[CR]• Improvements[CR]• Minor fixes[CR[CR][B]2.6.1[/B][CR]• Changes for Kodi 18[CR]• Add possibility to hide OSD when video is paused[CR]• Add 4K HDR flag icon (filename must contain 'HDR')[CR]• Add shortcut in skin settings to configure personal API key[CR]• Add scrolling text on music visualisation (thanks to jurialmunkey)[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.6.0[/B][CR]• Add possibility to choose gradient colors (thanks to jurialmunkey for idea)[CR]• Add classic list for power menu[CR]• Add Game OSD[CR]• Improvements[CR]• Minor fixes[CR][CR][B]2.5.10[/B][CR]• Add support for movies genres icons for Personalized Widgets[CR]• Add missing H262 flag icon[CR]• Improvements[CR]• Fix for PVR in some conditions[CR]• Minor fixes[CR][CR][B]2.5.9[/B][CR]• Add possibility to play trailers on movie information screen[CR]• Reorder necessary addons in Skin Settings[CR]• Minor fixes[CR][CR][B]2.5.8[/B][CR]• Add possibility to show item label on top with minimize main menu setting[CR]• Show mute icon on libraries when mute is enable[CR]• Fix clearlogos disappearance when mute is enable[CR]• Fix for LibreELEC settings addon[CR]• Minor fixes[CR][CR][B]2.5.7[/B][CR]• Add possibility to minimize main menu[CR]• Add media flags icons for 'Triple lists' and 'Double lists' views[CR]• Remove always attrib for defaultcontrol on Settings[CR]• Changes on login screen[CR]• Minor fixes[CR][CR][B]2.5.6[/B][CR]• Add new 'Triple lists' view for TV shows[CR]• Add new 'Double lists' view for seasons[CR]• Changes for Kodi 18 : Migrate add-on settings to settings library[CR]• Minor fixes[CR][CR][B]2.5.5[/B][CR]• Add possibility to show clearlogos at the top of home menu[CR]• Add clearlogos on dialog music info[CR]• Add banners on dialog video info[CR]• Fix episodes thumbs with Personalized Widgets[CR]• Fix on 'Double lists' and 'Triple lists' views to launch full album[CR]• Minor fixes[CR][CR][B]2.5.4[/B][CR]• Add posters on 'Fanart' view[CR]• Add new 'Double lists' view for sets[CR]• Fix end time resume flag icon with AM/PM[CR]• Fix visibility for 'Double lists' and 'Triple lists' views[CR]• Minor fixes[CR][CR][B]2.5.3[/B][CR]• Add new 'Double lists' view for artists and albums[CR]• Add new 'Triple lists' view for artists[CR]• Improve esthetic appearance[CR]• Minor fixes[CR][CR][B]2.5.2[/B][CR]• Add miniatures panel for Personalized Widgets[CR]• Add support for animated weather icons[CR]• Fix missing watched icons and progress bars for Personalized Widgets[CR]• Minor fixes[CR][CR][B]2.5.1[/B][CR]• Fix aspect ratio for widgets[CR]• Minor fixes[CR]• Update German translation[CR][CR][B]2.5.0[/B][CR]/!\ Reboot Kodi and 'Reset main menu and power menu settings' in skin settings after installation of this version /!\[CR]• Add vertical panels for Personalized Widgets[CR]• Add 'Categories' appearance for Personalized Widgets[CR]• Add support for albums back thumbs (file must be placed in album folder and named 'thumbback.jpg')[CR]• Add possibility to change rating text color[CR]• Fix issue with Appearance for Personalized Widgets[CR]• Minor fixes[CR][CR][B]2.4.0[/B][CR][B]/!\ Reboot Kodi and 'Reset main menu and power menu settings' in skin settings after installation of this version /!\[/B][CR]• Add support for Skin Shortcuts template to avoid personalized widgets reloading[CR]• Add possibility to define sort method and sort direction for personalized widgets[CR]• Add rating on video osd info[CR]• Minor changes[CR]• Minor fixes[CR][CR][B]2.3.2[/B][CR]• Add VP9 video codec icon[CR]• Add rewind and forward OSD buttons for PVR TimeShift[CR]• Fix on PVR/Radio widgets[CR]• Fix duration flag icon with Global Search[CR]• Many fixes for Arial font[CR]• Minor changes[CR]• Minor fixes[CR][CR][B]2.3.1[/B][CR]• Add Next Up popup for Live TV[CR]• Add albums count on artists dialog info[CR]• Add possibility to disable 'Settings' shortcut widget[CR]• Add PVR overlay when switching channels[CR]• Fix artists/albums plots on music dialog info[CR]• Fix on PVR[CR]• Fix caterories labels for personalized widgets[CR][CR][B]2.3.0[/B][CR]• Add parental control to protect home menu items and widgets with password[CR]• Add support for German language (Thanks to rainman74)[CR]• Fix CDArts position on Global Search screen[CR]• Fix esthetic appearance[CR]• Minor fixes[CR]• Minor changes[CR][CR][B]2.2.9[/B][CR]• Add support for extendedinfo youtube list[CR]• Add shortcut for movies set info to context menu[CR]• Add shortcut for extended info to context menu[CR]• Fix lyrics on music visualisation[CR]• Fix aspect ratio on tv shows widgets[CR]• Fix channel osd recording indicator visibility[CR]• Fix esthetic appearance[CR]• Minor fixes[CR]• Minor changes[CR][CR][B]2.2.8[/B][CR]• Add info dialog for movies sets[CR]• Fix playlists editor[CR]• Minor fixes[CR][CR][B]2.2.7[/B][CR]• Changes for Kodi 18[CR]• Add possibility to disable colored outline for CDArts[CR]• Add possibility to disable animated lyrics for classic lyrics[CR]• Fix disc overlay for some CDArts[CR]• Fix extended info window for some resolutions[CR]• Fix playlists editor[CR]• Minor fixes[CR][CR][B]2.2.6[/B][CR]• Change extension file '.png' to '.jpg' for games artworks[CR]• Minor fixes[CR][CR][B]2.2.5[/B][CR]• Add games sources widget[CR]• Add support for games artworks (artworks must be named identical to the file name of the game with the extension '.png' and must be in the same folder as games)[CR]• Fix personalized widget 5[CR]• Fix plots and thumbs on info dialog to avoid spoilers[CR]• Fix widgets property[CR]• Changes on widgets when libraries are not populated[CR][CR][B]2.2.4[/B][CR]• Add possibility to show CDArt on widgets and on library[CR]• Add possibility to install addons zip files directly from home submenu[CR]• Minor fixes[CR][CR][B]2.2.3[/B][CR]• Add possibility to use alphabet for scrolling on library (experimental)[CR]• Add more personalized widgets to bypass problem with disappearance and animations of widgets (use one personalized widget per home menu item)[CR]• Changes on duration flag icon with hours and minutes[CR]• Changes on PVR Guide with Kodi 18 last build[CR]• Minor fixes[CR][CR][B]2.2.2[/B][CR]• Add possibility to greyed out watched items in library and on widgets[CR]• Add support for Videolyrics v3 with possibility to fix lyrics colors by song (thanks to manfeed)[CR]• Add support for Kodi Log Uploader addon[CR]• Fix LibreELEC settings buttons[CR]• Minor fixes[CR][CR][B]2.2.1[/B][CR]• Changes for Kodi 18[CR]• Add 'All channels' and 'All radios' widgets[CR]• Fix PVR channels OSD[CR]• Fix esthetic appearance[CR][CR][B]2.2.0[/B][CR]• Add possibility to force views in library[CR]• Add possibility to customize power menu[CR]• Add flags for moviesets widget[CR]• Fix missing view for music[CR]• Fix esthetic appearance[CR]• Fix context menu position[CR]• Minor fixes[CR][CR][B]2.1.9[/B][CR]• Changes for Kodi 18[CR]• Add preview for view mode[CR]• Minor fixes[CR][B]2.1.8[/B][CR]• Add new 'Mosaic (vertical)' view[CR][CR][B]2.1.7[/B][CR]• Changes for Kodi 18[CR]• Fix setting to disable submenu[CR]• Minor fixes[CR][CR][B]2.1.6[/B][CR]• Add new 'Gallery' view[CR]• Add new 'Mosaic' view[CR]• Add clearlogos list for 'Shift' view[CR]• Minor fixes[CR][CR][B]2.1.5[/B][CR]• Add library info on settings widget[CR]• Add ratings/user ratings in list views[CR]• Changes on 'Next episode to watch' widget[CR]• Minor fixes[CR][CR][B]2.1.4[/B][CR]• Add possibility to configure submenus for Personnal Widget[CR]• Add possibility to show banners for episodes/thumbs widgets[CR]• Decrease number of personal widgets to 8 because not possible to show more[CR]• Fix context menu for CU LRC Lyrics addon[CR]• Fix disable Clearlogos on library[CR]• Minor fixes[CR][CR][B]2.1.3[/B][CR]• Fix centered posters on some views[CR]• Fix missing posters flag for moviesets with Wall (Thumbnails) view[CR]• Minnor fixes[CR][CR][B]2.1.2[/B][CR]• Fix adding item with Skin Shortcut[CR][CR][B]2.1.1[/B][CR]• Add support for submenus with Skin Shortcuts addon[CR]• Minnor fixes[CR][CR][B]2.1.0[/B][CR]• Add support for Skin Shortcuts addon to customize home menu and widgets[CR]• Add support for thumbnails with NextUp Service addon[CR]• Add support for Videolyrics v2 (thanks to manfeed)[CR]• Minnor fixes[CR]• Special Thanks to Gracus and ferent for reporting issue[CR][CR][B]2.0.6[/B][CR]• Add two views for power menu[CR]• Add possibility to hide thumbs episodes to avoid spoilers[CR]• Fix banner on music visualisation when next tracks are not available[CR]• Fix missing clearlogos with moviesets widget[CR]• Fix in musicvideo views[CR]• Fix label with moviesets thumbnails[CR]• Enable landscape views for seasons[CR]• Drop support for using hyphen as none value[CR]• Minnor fixes[CR][CR][B]2.0.5[/B][CR]• Add info button on video OSD[CR]• Add language and subtitles language on fullscreen info[CR]• Add button to switch between all/watched/unwatched recordings[CR]• Replace rating badge[CR]• Fix Youtube call[CR]• Minnor fixes[CR][CR][B]2.0.4[/B][CR]• Add new 'InfoWall (thumbnails)' view[CR]• Add new 'Wall (thumbnails)' view[CR]• Add extrafanarts support for 'Fanart' view[CR]• Add icon when item is resumable[CR]• Hide OSD directly after pause[CR]• Fix esthetic appearance[CR]• Minnor fixes[CR][CR][B]2.0.3[/B][CR]• Add Videolyrics (credits to manfeed)[CR]• Add new 'Next episodes to see' widget[CR]• Replace music videos widgets[CR]• Fix color with lyrics[CR]• Fix banner on music fullscreen[CR]• Fix music visualisation[CR]• Fix esthetic appearance[CR][CR][B]2.0.2[/B][CR]• Fix selecting widgets[CR][CR][B]2.0.1[/B][CR]• Add possibility to reorder main menu items[CR]• Add possibility to reset main menu items back to default[CR]• Add possibility to show smaller icons for 'Categories' widgets[CR]• Add studios flag icons for movies widgets[CR]• Add shortcuts on power menu to update video/music library[CR]• Fix colordiffuse for studios and labels flag icons[CR]• Minnor fixes[CR][CR][B]2.0.0[/B][CR]• Initial release[CR]• Add possibility to hide main menu when selecting widgets[CR]• Add possibility to disable each widget[CR]• Add possibility to hide watched items from recently added widgets[CR]• Add possibility to hide episodes plots to avoid spoilers[CR]• Add possibility to change skin color[CR]• Add possibility to change background color[CR]• Add possibility to change pattern color[CR]• Add possibility to change background opacity[CR]• Add possibility to top and bottom bars opacity[CR]• Add possibility to change weather icons pack[CR]• Add possibility to change studios icons pack[CR]• Add possibility to change genres icons pack[CR]• Add possibility to set splash screen (photo, video or music)[CR]• Add possibility to set number of items to display on widgets[CR]• Add possibility to backup/restore skin settings[CR]• Add possibility to disable zoom effect[CR]• Add possibility to enable/disable music visualisation effects on background[CR]• Add possibility to enable/disable video on background[CR]• Add possibility to hide notification popup during playback[CR]• Add possibility to show music visualisation screen when playing song[CR]• Add possibility to ExtraFanarts on music visualisation screen[CR]• Add possibility to animate Fanart/ExtraFanarts on music visualisation screen[CR]• Add possibility to add music visualisation effects on music visualisation screen[CR]• Add possibility to disable Kodi screensaver on music visualisation screen[CR]• Add possibility to start Artwork Downloader at startup[CR]• Add next tracks on music visualisation screen[CR]• Add actors list on video OSD[CR]• Add more buttons on OSD[CR]• Add more flag icons[CR]• Add next airing episodes widget for tv shows[CR]• Add horizontal view for PVR Guide[CR]• Add support for records labels icons pack[CR]• Add support for ExtraFanarts[CR]• Add support for animated posters[CR]• Add support for Clearlogos[CR]• Add support for CDArts[CR]• Add support for Artwork Downloader addon[CR]• Add support for NextUp Notification addon[CR]• Add support for CU LRC Lyrics addon[CR]• Add support for RSS Editor addon[CR]• Add support for Global Search addon[CR]• Add support for TV Show Next Aired addon[CR]• Add support for Extended Info addon[CR]• Add support for LibreELEC settings addon[CR]• Add support for Kiosk mode[CR]• Changes on views[CR]• Changes on volume bar[CR]• Some fixes[CR][CR]</news>
+	</extension>
+</addon>
+
+<addon id="skin.estuary.modv3" version="1.0.0" name="Estuary Mod V3" provider-name="Tim Fehr">
+	<requires>
+		<import addon="xbmc.gui" version="5.15.0"/>
+	</requires>
+	<extension point="xbmc.gui.skin" debugging="false">
+		<res width="1920" height="1440" aspect="4:3" default="false" folder="xml" />
+		<res width="1920" height="1280" aspect="3:2" default="false" folder="xml" />
+		<res width="1920" height="1200" aspect="16:10" default="false" folder="xml" />
+		<res width="2040" height="1080" aspect="17:9" default="false" folder="xml" />
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+		<res width="2560" height="1080" aspect="21:9" default="false" folder="xml" />
+		<res width="2338" height="1080" aspect="19.5:9" default="false" folder="xml" />
+		<res width="2160" height="1080" aspect="18:9" default="false" folder="xml" />
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="af_ZA">Estuary oortreksel deur phil65. (Kodi se bestek oortreksel)</summary>
+		<summary lang="be_BY">Абалонка "Estuary" ад phil65. (прадвызначаная абалонка Kodi)</summary>
+		<summary lang="bg_BG">Estuary облик от phil65 и Piers. (стандартния облик на Kodi)</summary>
+		<summary lang="ca_ES">Aparença Estuary per phil65 i Piers. (aparença predeterminada de Kodi)</summary>
+		<summary lang="cs_CZ">Vzhled Estuary od autora phil65. (Výchozí vzhled Kodi)</summary>
+		<summary lang="da_DK">Estuary skin af phil65 (Kodi's standard brugerflade).</summary>
+		<summary lang="de_DE">Estuary Skin von phil65 und Piers. (Kodi Standardskin)</summary>
+		<summary lang="el_GR">Το κέλυφος Estuary από τον phil65 και τον Pier. (προεπιλεγμένο κέλυφος του Kodi)</summary>
+		<summary lang="en_GB">Estuary skin by phil65. (Kodi's default skin)</summary>
+		<summary lang="en_NZ">Estuary skin by phil65 and Piers. (Kodi's default skin)</summary>
+		<summary lang="en_US">Estuary skin by phil65 and Piers. (Kodi's default skin)</summary>
+		<summary lang="es_AR">Skin Estuary por phil65 (skin por defecto de Kodi)</summary>
+		<summary lang="es_ES">Skin Estuary, creado por phil65 and Piers (skin por defecto de Kodi).</summary>
+		<summary lang="es_MX">Estuary skin por phil65 y Piers. (El skin por defecto de Kodi)</summary>
+		<summary lang="et_EE">Estuary rüü autorilt phil65. (Kodi vaikerüü)</summary>
+		<summary lang="eu_ES">Estuary azala phil65-ek egina. (Kodiren azal lehenetsia)</summary>
+		<summary lang="fi_FI">Estuary on phil65:n luoma Kodin oletusulkoasu.</summary>
+		<summary lang="fr_CA">Habillage Estuary par phil65 et Piers (habillage par défaut de Kodi).</summary>
+		<summary lang="fr_FR">Estuary, un habillage par phil65 et Piers (habillage d'origine de Kodi).</summary>
+		<summary lang="gl_ES">Pel Estuary por phil65 and Piers. (Pel predefinida do Kodi)</summary>
+		<summary lang="he_IL">מעטפת Estuary של phil65 (ברירת המחדל של קודי)</summary>
+		<summary lang="hr_HR">Estuary presvlaka autora phil65 i Piersa. (uobičajena Kodi presvlaka)</summary>
+		<summary lang="hu_HU">Estuary felszín. Készítette phil65 és Piers. (Kodi alapértelmezett felszín)</summary>
+		<summary lang="is_IS">Estuary-skinnið eftir phil65. (sjálfgefið útlit Kodi)</summary>
+		<summary lang="it_IT">Skin Estuary da phil65 e Piers. (Skin predefinita di Kodi)</summary>
+		<summary lang="ja_JP">Estuaryスキン by phil65 and Piers (Kodi デフォルトスキン)</summary>
+		<summary lang="ko_KR">phil65가 만든 Estuary 스킨. (Kodi 기본 스킨)</summary>
+		<summary lang="lt_LT">Estuary teminė išvaizda, kurią sukūrė phil65 ir Piers. (Numatytoji Kodi teminė išvaizda)</summary>
+		<summary lang="lv_LV">Estuary apvalks no phil65. (Kodi noklusējuma apvalks)</summary>
+		<summary lang="mk_MK">Estuary skin by phil65. (Kodi's default skin)</summary>
+		<summary lang="ms_MY">Kulit Estuary oleh phil65 dan rakan-rakan. (Kulit lalai Kodi)</summary>
+		<summary lang="nb_NO">Esturay-drakt av phil65 og Piers. (Kodis forvalgte drakt)</summary>
+		<summary lang="nl_NL">Estuary skin door phil65 en Piers. (Kodi's standaardskin)</summary>
+		<summary lang="pl_PL">Skóra Eustary autorstwa phil65. (domyślna skóra Kodi)</summary>
+		<summary lang="pt_BR">Skin Estuary por phil65 e Piers. (Skin padrão do Kodi)</summary>
+		<summary lang="pt_PT">Visual Estuary de phil65 e Piers. (Visual por omissão do Kodi)</summary>
+		<summary lang="ro_RO">Tema Estuary de phil65. (Temă implicită pentru Kodi)</summary>
+		<summary lang="ru_RU">Обложка Estuary (стандартная обложка Kodi). Авторы: phil65 and Piers.</summary>
+		<summary lang="sk_SK">Vzhľad Estuary, vytvorili phil65. (predvolený vzhľad pre Kodi)</summary>
+		<summary lang="sr_RS">Маска Estuary аутора phil65 и Piers. (Подразумевана Коди маска)</summary>
+		<summary lang="sr_RS@latin">Maska Estuary autora phil65 i Piers. (Podrazumevana Kodi maska)</summary>
+		<summary lang="sv_SE">Estuary, ett skal av phil65. (Kodi's standardskal)</summary>
+		<summary lang="szl">Skōra Estuary ôd phil65 i Piers. (Wychodnŏ skōra Kodi)</summary>
+		<summary lang="th_TH">สกิน Estuary โดย phil65 และ Piers (หน้าตาเริ่มต้นของKodi)</summary>
+		<summary lang="tr_TR">Estuary dış görünümü. phil65 (Kodi'nin varsayılan dış görünümü)</summary>
+		<summary lang="uk_UA">Обкладинка Estuary від phil65 і Piers. (стандартна обкладинка Kodi)</summary>
+		<summary lang="vi_VN">Giao diện Estuary của phil65. (Giao diện mặc định của Kodi)</summary>
+		<summary lang="zh_CN">phil65 开发的 Estuary 皮肤（Kodi 的默认皮肤）。</summary>
+		<summary lang="zh_TW">phil65與Piers 製作的Estuary佈景主題（Kodi的預設佈景主題）</summary>
+		<description lang="af_ZA">Estuary is die bestek oortreksel vir Kodi 17.0 en op. Dit poog om maklik te wees vir eerste keer Kodi gebruikers om te verstaan en te gebruik.</description>
+		<description lang="be_BY">Estuary - прадвызначаная абалонка для Kodi 17.0 і пазнейшых версій. Яна будзе простай і зразумелай для карыстальнікаў, якія не мелі досведу працы з Kodi.</description>
+		<description lang="bg_BG">Estuary е стандартният облик на Kodi 17 и по-новите версии. Целта е да се улеснят хората, които се сблъскват за първи път с Kodi.</description>
+		<description lang="ca_ES">Estuary és l'aparença predeterminada de Kodi 17.0 i posteriors. Per als usuaris per primera vegada de Kodi, intenta ser fàcil d'entendre i d'utilitzar.</description>
+		<description lang="cs_CZ">Estuary je výchozí vzhled pro Kodi 17.0 a vyšší. Snaží se být jednoduše pochopitelný a použitelný pro nové uživatele Kodi.</description>
+		<description lang="da_DK">Estuary er standardbrugerfladen for Kodi 17.0 og højere. Det forenkler førstegangsbrugen af Kodi ved at gøre det nemmere at forstå og bruge.</description>
+		<description lang="de_DE">Estuary ist der Standardskin für Kodi 17.0 und höher. Ziel war es, einen einfach zu bedienenden Skin für neue Kodi-Benutzer zu entwickeln.</description>
+		<description lang="el_GR">Το Estuary είναι η προεπιλεγμένη αμφίεση για τις εκδόσεις Kodi 17.0 και άνω. Επιχειρεί να είναι προσιτό στους αρχάριους χρήστες του Kodi για να το κατανοήσουν και να το χρησιμοποιήσουν.</description>
+		<description lang="en_GB">Estuary is the default skin for Kodi 17.0 and above. It attempts to be easy for first time Kodi users to understand and use.</description>
+		<description lang="en_NZ">Estuary is the default skin for Kodi 17.0 and above. It attempts to be easy for first time Kodi users to understand and use.</description>
+		<description lang="en_US">Estuary is the default skin for Kodi 17.0 and above. It attempts to be easy for first time Kodi users to understand and use.</description>
+		<description lang="es_AR">Estuary es el skin por defecto para Kodi 17.0 y posteriores. Intenta ser fácil de entender y utilizar para los usuarios Kodi primerizos.</description>
+		<description lang="es_ES">Estuary es el skin por defecto para Kodi 17.0 o superior. Su objetivo es la facilidad de comprensión y uso para usuarios primerizos de Kodi.</description>
+		<description lang="es_MX">Estuary es el skin por defecto para Kodi 17.0 y superior. Intenta ser fácil para los usuarios de Kodi de primera vez para entender y usar.</description>
+		<description lang="eu_ES">Estuary azala kodi 17.0 eta berriagoen azal lehenetsia da. Kodiren erabiltzaile hasiberrientzako erabilerraza eta ulerterraza izaten saiatzen da.</description>
+		<description lang="fi_FI">Estuary on oletusulkoasu Kodin versiosta 17.0 lähtien. Se pyrkii olemaan helppo ymmärtää ja käyttää Kodin ensikäyttäjille. </description>
+		<description lang="fr_CA">Estuary est l’habillage par défaut pour Kodi 17.0 et ultérieure. Il s’efforce d’être facile à comprendre et à utiliser pour les utilisateurs débutants de Kodi.</description>
+		<description lang="fr_FR">Estuary est l'habillage d'origine pour Kodi 17.0 et supérieur. Il est facile à comprendre et à utiliser pour les utilisateurs novices de Kodi.</description>
+		<description lang="gl_ES">Estuary é a pel predefinida para Kodi 17.0 e superior. Esta tenta ser doada de entender e usar polos usuarios recen chegados a Kodi.</description>
+		<description lang="he_IL">Estuary היא מעטפת ברירת המחדל של קודי מגרסאות 17.0 ומעלה. מטרת מעטפת זו היא להיות פשוטה לשימוש ולהכרה ראשונית על ידי משתמשים חדשים.</description>
+		<description lang="hr_HR">Estuary je uobičajena presvlaka za Kodi 17.0 i novije inačice. To je pokušaj da se novim korisnicima olakša prvo korištenje i kasnija upotreba Kodija.</description>
+		<description lang="hu_HU">Az Estuary az alapértelmezett felszín a 17.0 és újabb Kodi kiadásokban.  Megpróbál könnyen kezelhető és használható lenni, az újonc Kodi felhasználóknak is.</description>
+		<description lang="is_IS">Estuary er sjálfgefið skinn fyrir Kodi 17.0 og nýrri. Með því á að vera auðvelt fyrir fyrsta-skiptis Kodi-notendur að skilja og nota viðmótið.</description>
+		<description lang="it_IT">Estuary è la skin predefinita di Kodi 17.0 e successivi. Cerca di essere facile da capire e usare per i nuovi utenti di Kodi.</description>
+		<description lang="ja_JP">EstuaryはKodi 17.0およびそれ以上のバージョンで標準のスキンです。ユーザーが初めてKodiに触れる際にわかりやすく使えるようにしてあります。</description>
+		<description lang="ko_KR">Estuary는 Kodi 17.0이상의 기본 스킨입니다. 처음 Kodi를 접하는 사용자가 쉽게 이해하고 사용할 수 있도록 만들었습니다.</description>
+		<description lang="lt_LT">Estuary yra numatytoji Kodi 17.0 ir aukštesnių versijų teminė išvaizda. Jos tikslas yra būti lengvai perprantama naujiems Kodi vartotojams.</description>
+		<description lang="ms_MY">Estuary ialah kulit lalai untuk Kodi 17.0 dan ke atas. Kulit yang mudah digunakan buat pengguna Kodi kali pertama untuk memahami dan menggunakannya.</description>
+		<description lang="nb_NO">Estuary er forvalgt drakt til Kodi 17.0 og nyere. Det tar mål av seg å være en enkel drakt for førstegangsbrukere av Kodi, slik at det er til å forstå og kan brukes.</description>
+		<description lang="nl_NL">Estuary is de standaardskin voor Kodi 17.0 en hoger. Het tracht eenvoudig te begrijpen en te gebruiken te zijn voor beginnende Kodi-gebruikers.</description>
+		<description lang="pl_PL">Eustary jest domyślną skórą Kodi dla wersji 17.0 i późniejszych. Jest próbą łatwego wprowadzenia początkujących użytkowników w funkcje Kodi.</description>
+		<description lang="pt_BR">Estuary é a skin padrão para o Kodi 17.0 e acima. Objetiva ser fácil para usuários que iniciam no Kodi pela primeira vez, facilitando aprendizagem de uso do mesmo.</description>
+		<description lang="pt_PT">O Estuary é o visual por omissão para o Kodi 17.0 e posteriores. Tenta ser simples para os utilizadores menos experientes do Kodi compreenderem e usarem.</description>
+		<description lang="ro_RO">Estuary este tema implicită pentru Kodi 17.0 și versiunile ulterioare. Încearcă să fie ușor de înțeles și folosit pentru utilizatorii care folosesc Kodi pentru prima dată.</description>
+		<description lang="ru_RU">Estuary — это стандартная обложка Kodi, начиная с версии 17.0.&#10;Простая и понятная в использовании для новых пользователей Kodi.</description>
+		<description lang="sk_SK">Estuary je predvolený vzhľad pre Kodi 17.0 a vyššie. Pokúša sa byť pre prvotných používateľov Kodi jednoduchým na pochopenie a používanie.</description>
+		<description lang="sr_RS">Estuary је подразумевана маска за Kodi 17.0 и изнад. Покушава да буде једноставан за разумевање и коришћење новим корисницима Kodi-ја.</description>
+		<description lang="sr_RS@latin">Estuary je podrazumevana maska za Kodi 17.0 i iznad. Pokušava da bude jednostavan za razumevanje i korišćenje novim korisnicima Kodija.</description>
+		<description lang="sv_SE">Estuary är standardskalet för Kodi 17.0 och uppåt. Det är utformat för att vara lättförståeligt och användarvänligt för förstagångsanvändare av Kodi.</description>
+		<description lang="szl">Estuary je wychodnōm skōrōm Kodi dlŏ wersyje 17.0 i dalszych. Prōbuje być proste dlŏ używŏczōw, dlŏ kerych Kodi je nowe</description>
+		<description lang="th_TH">Estuary คือหน้าตาเริ่มต้นของ Kodi 17.0 และสูงกว่า เป็นความพยายามที่จะทำให้ง่ายสำหรับผู้ใช้ Kodi ในครั้งแรก ที่จะเข้าใจและใช้งาน</description>
+		<description lang="tr_TR">Estuary Kodi 17.0 ve yukarısı için varsayılan dış görünümdür. İlk kez Kodi kullananlar için anlaşılması ve kullanımı kolaydır.</description>
+		<description lang="uk_UA">Estuary є стандартною обкладинкою Kodi 17.0 і подальших версій. Її основна ідея — простота використання для нових користувачів Kodi.</description>
+		<description lang="vi_VN">Estuary là giao diện mặc định cho Kodi 17.0 trở lên. Nó dễ dàng cho người dùng Kodi lần đầu tiên hiểu và sử dụng.</description>
+		<description lang="zh_CN">Estuary 是 Kodi 17.0 的默认皮肤。它力求使首次使用 Kodi 的用户易于上手。</description>
+		<description lang="zh_TW">Estuary是Kodi 17.0開始搭載的預設佈景主題。主要在讓第一次使用 Kodi 的使用者可以簡單地上手。</description>
+		<disclaimer lang="af_ZA">Estuary is die bestek oortreksel vir Kodi, verwydering mag probleme veroorsaak</disclaimer>
+		<disclaimer lang="be_BY">Estuary - прадвызначаная абалонка для Kodi. Яе выдаленне можа прывесці да праблем</disclaimer>
+		<disclaimer lang="bg_BG">Estuary е стандартният облик на Kodi. Премахването му може да предизвика проблеми</disclaimer>
+		<disclaimer lang="ca_ES">Estuary és l'aparença predeterminada de Kodi, si s'elimina pot causar problemes.</disclaimer>
+		<disclaimer lang="cs_CZ">Estuary je výchozí vzhled pro Kodi, jeho odebrání může způsobit problémy</disclaimer>
+		<disclaimer lang="cy_GB">Estuary yw croen diofyn Kodi. Efallai bydd ei dynnu yn achosi problemau</disclaimer>
+		<disclaimer lang="da_DK">Estuary er standard brugerfladen. Fjernes det kan der opstå problemer.</disclaimer>
+		<disclaimer lang="de_DE">Estuary ist der Standardskin von Kodi. Ein Entfernen des Skins kann Probleme verursachen.</disclaimer>
+		<disclaimer lang="el_GR">Το Estuary είναι η προεπιλεγμένη αμφίεση για το Kodi. Η αφαίρεσή του μπορεί να δημιουργήσει προβλήματα.</disclaimer>
+		<disclaimer lang="en_GB">Estuary is the default skin for Kodi, removing it may cause issues</disclaimer>
+		<disclaimer lang="en_NZ">Estuary is the default skin for Kodi, removing it may cause issues</disclaimer>
+		<disclaimer lang="en_US">Estuary is the default skin for Kodi, removing it may cause issues</disclaimer>
+		<disclaimer lang="es_AR">Estuary es el skin por defecto de Kodi. Borrarlo puede causar problemas</disclaimer>
+		<disclaimer lang="es_ES">Estuary es el skin por defecto de Kodi. Desinstalarlo puede causar problemas.</disclaimer>
+		<disclaimer lang="es_MX">Estuary es el skin por defecto para Kodi, su eliminación puede causar problemas</disclaimer>
+		<disclaimer lang="eu_ES">Estuary Kodiren azal lehenetsia da. Ezabatzeak arazoak eragin ditzake</disclaimer>
+		<disclaimer lang="fi_FI">Estuary on Kodin oletusulkoasu, sen poisto voi aiheuttaa ongelmia</disclaimer>
+		<disclaimer lang="fr_CA">Estuary est l’habillage par défaut de Kodi, le supprimer peut créer des problèmes</disclaimer>
+		<disclaimer lang="fr_FR">Estuary est l'habillage d'origine de Kodi, le retirer peut créer des problèmes</disclaimer>
+		<disclaimer lang="gl_ES">Estuary é a pel predefinida para Kodi e eliminala pode causar problemas.</disclaimer>
+		<disclaimer lang="he_IL">Estuary היא מעטפת ברירת המחדל של קודי, הסרתה עלולה לגרום לתקלות</disclaimer>
+		<disclaimer lang="hr_HR">Estuary je uobičajena presvlaka za Kodi, njegovim uklanjanjem može uzrokovati poteškoće</disclaimer>
+		<disclaimer lang="hu_HU">Az Estuary az alapértelmezett Kodi felszín. Eltávolítása problémákat okozhat.</disclaimer>
+		<disclaimer lang="is_IS">Estuary er sjálfgefið skinn fyrir Kodi, ef það er fjarlægt gætu komið upp ýmis vandamál</disclaimer>
+		<disclaimer lang="it_IT">Estuary è la skin predefinita di Kodi, rimuoverla potrebbe causare problemi</disclaimer>
+		<disclaimer lang="ja_JP">EstuaryはKodiのデフォルトスキンなので、これを削除するとうまく動かなくなる可能性があります</disclaimer>
+		<disclaimer lang="ko_KR">Estuary는 Kodi의 기본스킨으로 제거시 문제가 생길 수 있습니다.</disclaimer>
+		<disclaimer lang="lt_LT">Estuary yra numatytoji Kodi teminė išvaizda, jos pašalinimas gali sukelti problemų</disclaimer>
+		<disclaimer lang="ms_MY">Estuary ialah kulit lalai Kodi, mengubahnya boleh menimbulkan isu.</disclaimer>
+		<disclaimer lang="nb_NO">Estuary er forvalgt drakt for Kodi, dersom du fjerner det kan det forårsake problemer.</disclaimer>
+		<disclaimer lang="nl_NL">Estuary is de standaardskin voor Kodi, het verwijderen van Estuary kan leiden tot problemen.</disclaimer>
+		<disclaimer lang="pl_PL">Eustary jest domyślną skórą Kodi, usunięciejej może powodować problemy</disclaimer>
+		<disclaimer lang="pt_BR">Estuary é a skin padrão para o Kodi, removendo-a pode causar problemas</disclaimer>
+		<disclaimer lang="pt_PT">O Estuary é o visual por omissão do Kodi; se o remover, poderá ter alguns problemas</disclaimer>
+		<disclaimer lang="ro_RO">Estuary este tema implicită pentru Kodi, eliminarea ei poate cauza probleme</disclaimer>
+		<disclaimer lang="ru_RU">Estuary — это стандартная обложка Kodi, и ее удаление может привести к возникновению проблем</disclaimer>
+		<disclaimer lang="sk_SK">Estuary je predvolený vzhľad pre Kodi, jeho odstránenie môže spôsobiť problémy</disclaimer>
+		<disclaimer lang="sr_RS">Estuary је подразумевана маска за Kodi, уклањање може изазвати проблеме</disclaimer>
+		<disclaimer lang="sr_RS@latin">Estuary je podrazumevana maska za Kodi, uklanjanje može izazvati probleme</disclaimer>
+		<disclaimer lang="sv_SE">Estuary är Kodis standardskal. Om du tar bort det kan det orsaka problem.</disclaimer>
+		<disclaimer lang="szl">Estuary je wychodnōm skōrōm Kodi, jij uchrōniynie może sprŏwiać niyprzileżytości</disclaimer>
+		<disclaimer lang="th_TH">Estuary เป็นหน้าตาเริ่มต้นสำหรับ Kodi, การลบมัน อาจทำให้เกิดปัญหา</disclaimer>
+		<disclaimer lang="tr_TR">Estuary Kodi için varsayılan dış görünümdür, kaldırmak sorunlara yol açabilir</disclaimer>
+		<disclaimer lang="uk_UA">Estuary — основна обкладинка Kodi, і її видалення може призвести до проблем</disclaimer>
+		<disclaimer lang="vi_VN">Estuary là giao diện mặc định cho Kodi, loại bỏ nó có thể gây ra sự cố</disclaimer>
+		<disclaimer lang="zh_CN">Estuary 是 Kodi 的默认皮肤，删除它可能导致故障。</disclaimer>
+		<disclaimer lang="zh_TW">Estuary 是 Kodi 預設的佈景主題，移除它可能會造成問題</disclaimer>
+		<platform>all</platform>
+		<license>CC BY-SA 4.0, GNU GENERAL PUBLIC LICENSE Version 2.0</license>
+		<forum>http://forum.kodi.tv/</forum>
+		<source>https://github.com/xbmc/skin.estuary/</source>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+			<screenshot>resources/screenshot-01.jpg</screenshot>
+			<screenshot>resources/screenshot-02.jpg</screenshot>
+			<screenshot>resources/screenshot-03.jpg</screenshot>
+			<screenshot>resources/screenshot-04.jpg</screenshot>
+			<screenshot>resources/screenshot-05.jpg</screenshot>
+			<screenshot>resources/screenshot-06.jpg</screenshot>
+			<screenshot>resources/screenshot-07.jpg</screenshot>
+			<screenshot>resources/screenshot-08.jpg</screenshot>
+		</assets>
+	</extension>
+</addon>
+</addons>
