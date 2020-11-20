@@ -634,7 +634,7 @@
 						<param name="visible" value="!String.IsEmpty(Container(5083).ListItem.AudioChannels)" />
 					</include>
 					<include content="MediaFlag">
-						<param name="width" value="0" />
+						<param name="width" value="73" />
 					</include>
 					<control type="group">
 						<width>176</width>
@@ -708,7 +708,7 @@
 						<param name="visible" value="!String.IsEmpty(Container(5094).ListItem.AudioChannels)" />
 					</include>
 					<include content="MediaFlag">
-						<param name="width" value="0" />
+						<param name="width" value="73" />
 					</include>
 					<control type="group">
 						<width>176</width>
@@ -782,7 +782,7 @@
 						<param name="visible" value="!String.IsEmpty(Container(5084).ListItem.AudioChannels)" />
 					</include>
 					<include content="MediaFlag">
-						<param name="width" value="0" />
+						<param name="width" value="73" />
 					</include>
 					<control type="group">
 						<width>176</width>

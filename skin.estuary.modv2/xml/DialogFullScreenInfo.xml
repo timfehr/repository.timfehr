@@ -493,6 +493,12 @@
 					<param name="top" value="5" />
 				</include>
 				<include content="MediaFlag">
+					<param name="texture" value="flags/dv.png" />
+					<param name="width" value="71" />
+					<param name="visible" value="String.Contains(Player.Filenameandpath,dv) | String.Contains(Player.Filenameandpath,DV)" />
+					<param name="top" value="5" />
+				</include>
+				<include content="MediaFlag">
 					<param name="texture" value="$VAR[VideoPlayerResolutionFlagVar]" />
 					<param name="fallback" value="flags/videoresolution/fallback.png" />
 					<param name="visible" value="!String.Contains(Player.Filenameandpath,hdr) + !String.Contains(Player.Filenameandpath,HDR)" />
